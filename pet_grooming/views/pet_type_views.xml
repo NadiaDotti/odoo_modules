@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pet_type_view_form" model="ir.ui.view">
+            <field name="name">pet.type.view.form</field>
+            <field name="model">pet.type</field>
+            <field name="arch" type="xml">
+                <form string="Pet Type View Form">
+                    <sheet>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field name="name"></field>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page name="pet_breed" string="Pet Breeds"> 
+                                <field name="pet_breed_ids">
+                                    <list no_open="1">
+                                        <field name="name"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pet_type_view_tree" model="ir.ui.view">
+            <field name="name">pet.type.view.tree</field>
+            <field name="model">pet.type</field>
+            <field name="arch" type="xml">
+                <list string="Pet Type View Tree">
+                    <field name="name"></field>
+                </list>
+            </field>
+        </record>
+
+        <record id="pet_type_actions" model="ir.actions.act_window">
+            <field name="name">Pet Type</field>
+            <field name="path">pet-type</field>
+            <field name="res_model">pet.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Pet Type!
+                </p>
+            </field>
+        </record>
+        <record id="pet_action_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pet_type_view_form"/>
+        </record>
+        <record id="pet_action_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="pet_type_view_tree"/>
+        </record>
+
+        <menuitem id="menu_pet_type"
+            name="Pet Type"
+            action="pet_type_actions"
+            parent="root_menu_pet_grooming"
+            sequence="10"/>
+    </data>
+</odoo>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pet_view_form" model="ir.ui.view">
+            <field name="name">pet.view.form</field>
+            <field name="model">pet</field>
+            <field name="arch" type="xml">
+                <form string="Pet View Form">
+                    <sheet>
+                        <div class="oe_title mb24">
+                            <h1>
+                                <field name="name"></field>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="partner_id"></field>
+                            <field name="pet_breed_id"></field>
+                        </group>
+                        <notebook>
+                            <page name="information" string="Information">
+                                <group>
+                                    <field name="difficulty"></field>
+                                    <field name="note"></field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+        <record id="pet_view_tree" model="ir.ui.view">
+            <field name="name">pet.view.tree</field>
+            <field name="model">pet</field>
+            <field name="arch" type="xml">
+                <list string="Pet View Tree">
+                    <field name="partner_id"></field>
+                    <field name="name"></field>
+                    <field name="pet_breed_id"></field>
+                </list>
+            </field>
+        </record>
+
+        <record id="pet_actions" model="ir.actions.act_window">
+            <field name="name">Pets</field>
+            <field name="path">pets</field>
+            <field name="res_model">pet</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Pet!
+                </p>
+            </field>
+        </record>
+        <record id="pet_action_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pet_view_form"/>
+        </record>
+        <record id="pet_action_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="pet_view_tree"/>
+        </record>
+
+        <menuitem name="Pet Grooming"
+            id="root_menu_pet_grooming"
+            web_icon="pet_grooming,static/description/icon.png"
+            sequence="2"
+            groups="base.group_user"/>
+
+        <menuitem id="menu_pet_grooming"
+            name="Pets"
+            action="pet_actions"
+            parent="root_menu_pet_grooming"
+            sequence="1"/>
+    </data>
+</odoo>

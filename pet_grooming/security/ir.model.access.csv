@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pet,pet,model_pet,base.group_user,1,1,1,1
+access_pet_breed,pet.breed,model_pet_breed,base.group_user,1,1,1,1
+access_pet_type,pet.type,model_pet_type,base.group_user,1,1,1,1
