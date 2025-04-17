@@ -13,9 +13,9 @@
                             </h1>
                         </div>
                         <notebook>
-                            <page name="pet_breed" string="Pet Breeds"> 
+                            <page name="pet_breed" string="Pet Breeds">
                                 <field name="pet_breed_ids">
-                                    <list no_open="1">
+                                    <list no_open="1" editable="bottom">
                                         <field name="name"/>
                                     </list>
                                 </field>
@@ -57,10 +57,15 @@
             <field name="view_id" ref="pet_type_view_tree"/>
         </record>
 
+        <menuitem id="menu_pet_configuration"
+            name="Configuration"
+            parent="root_menu_pet_grooming"
+            sequence="100"/>
+
         <menuitem id="menu_pet_type"
             name="Pet Type"
             action="pet_type_actions"
-            parent="root_menu_pet_grooming"
-            sequence="10"/>
+            parent="menu_pet_configuration"
+            sequence="5"/>
     </data>
 </odoo>

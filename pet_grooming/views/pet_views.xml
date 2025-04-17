@@ -13,15 +13,28 @@
                             </h1>
                         </div>
                         <group>
-                            <field name="partner_id"></field>
-                            <field name="pet_breed_id"></field>
+                            <group>
+                                <field name="partner_id"></field>
+                            </group>
+                            <group>
+                                <field name="pet_type_id"></field>
+                                <field name="pet_breed_id"></field>
+                            </group>
                         </group>
                         <notebook>
                             <page name="information" string="Information">
                                 <group>
                                     <field name="difficulty"></field>
+                                    <field name="muzzle"></field>
                                     <field name="note"></field>
                                 </group>
+                            </page>
+                            <page name="products" string="Product">
+                                <field name="product_ids">
+                                    <list no_open="1" editable="bottom">
+                                        <field name="display_name"/>
+                                    </list>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>
