@@ -32,7 +32,7 @@
                             <page name="products" string="Product">
                                 <field name="product_ids">
                                     <list no_open="1" editable="bottom">
-                                        <field name="display_name"/>
+                                        <!-- <field name="display_name"/> -->
                                     </list>
                                 </field>
                             </page>
